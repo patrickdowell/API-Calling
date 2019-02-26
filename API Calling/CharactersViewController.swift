@@ -51,10 +51,10 @@ class CharactersViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for:indexPath)
-        let source = characters[indexPath.row]
-        cell.textLabel?.text = source["name"]
-        cell.detailTextLabel?.text = source["species"]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let character = characters[indexPath.row]
+        cell.textLabel?.text = character["name"]
+        cell.detailTextLabel?.text = character["species"]
         return cell
     }
     
