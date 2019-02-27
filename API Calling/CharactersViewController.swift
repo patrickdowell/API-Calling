@@ -18,10 +18,8 @@ class CharactersViewController: UITableViewController {
         if let url = URL(string: query) {
             if let data = try? Data(contentsOf: url) {
                 let json = try! JSON(data: data)
-                if json["status"] == "ok" {
                     parse(json: json)
                     return
-                }
             }
         }
         loadError()
