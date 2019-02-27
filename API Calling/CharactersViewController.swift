@@ -9,22 +9,25 @@
 import UIKit
 
 class CharactersViewController: UITableViewController {
-
+    
     var characters = [[String: String]]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let query = "https://rickandmortyapi.com/api/character/"
-        if let url = URL(string: query) {
-            if let data = try? Data(contentsOf: url) {
-                let json = try! JSON(data: data)
-                    parse(json: json)
+        DispatchQueue.global(qos: .userInitiated).async {
+            [unowned self] in
+            if let url = URL(string: query) {
+                if let data = try? Data(contentsOf: url) {
+                    let json = try! JSON(data: data)
+                    self.parse(json: json)
                     return
+                }
             }
+            self.loadError()
         }
-        loadError()
     }
-
+    
     func parse(json: JSON) {
         for result in json["results"].arrayValue {
             let id = result["id"].stringValue
@@ -35,13 +38,20 @@ class CharactersViewController: UITableViewController {
             let character = ["id": id, "name": name, "status": status, "species": species, "gender": gender]
             characters.append(character)
         }
-        tableView.reloadData()
+        DispatchQueue.main.async {
+            [unowned self] in
+            self.tableView.reloadData()
+        }
     }
-
+    
     func loadError() {
-        let alert = UIAlertController(title: "Loading Error", message: "There was a problem loading the news feed.", preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            [unowned self] in
+            self.tableView.reloadData()
+            let alert = UIAlertController(title: "Loading Error", message: "There was a problem loading the news feed.", preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
