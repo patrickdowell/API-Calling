@@ -2,20 +2,21 @@
 //  ViewController.swift
 //  API Calling
 //
-//  Created by Patrick Dowell on 2/22/19.
+//  Created by Patrick Dowell on 2/27/19.
 //  Copyright © 2019 Patrick Dowell. All rights reserved.
 //
 
 import UIKit
 
-class CharactersViewController: UITableViewController {
+class DetailsViewController: UITableViewController {
     
-    var characters = [[String: String]]()
+    var details = [[String: String]]()
+    var character = [String: String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Rick & Morty Characters"
-        let query = "https://rickandmortyapi.com/api/character/"
+        self.title = "Character Details"
+        let query = "https://rickandmortyapi.com/api/character/" + "\(character["id"]!)"
         DispatchQueue.global(qos: .userInitiated).async {
             [unowned self] in
             if let url = URL(string: query) {
@@ -36,8 +37,8 @@ class CharactersViewController: UITableViewController {
             let status = result["status"].stringValue
             let species = result["species"].stringValue
             let gender = result["gender"].stringValue
-            let character = ["id": id, "name": name, "status": status, "species": species, "gender": gender]
-            characters.append(character)
+            let detail = ["id": id, "name": name, "status": status, "species": species, "gender": gender]
+            details.append(character)
         }
         DispatchQueue.main.async {
             [unowned self] in
@@ -56,12 +57,12 @@ class CharactersViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return characters.count
+        return details.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        let character = characters[indexPath.row]
+        let character = details[indexPath.row]
         cell.textLabel?.text = character["name"]
         cell.detailTextLabel?.text = character["species"]
         return cell

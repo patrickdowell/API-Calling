@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C6E470E222702F200A90D91 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C6E470D222702F200A90D91 /* DetailsViewController.swift */; };
 		3CB85B2422246038003D1B7A /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CB85B2322246037003D1B7A /* SwiftyJSON.swift */; };
 		3CBCDBBB22206BCC00BF9C9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCDBBA22206BCC00BF9C9D /* AppDelegate.swift */; };
 		3CBCDBBD22206BCC00BF9C9D /* CharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBCDBBC22206BCC00BF9C9D /* CharactersViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3C6E470D222702F200A90D91 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		3CB85B2322246037003D1B7A /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		3CBCDBB722206BCC00BF9C9D /* API Calling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "API Calling.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CBCDBBA22206BCC00BF9C9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			children = (
 				3CBCDBBA22206BCC00BF9C9D /* AppDelegate.swift */,
 				3CBCDBBC22206BCC00BF9C9D /* CharactersViewController.swift */,
+				3C6E470D222702F200A90D91 /* DetailsViewController.swift */,
 				3CBCDBBE22206BCC00BF9C9D /* Main.storyboard */,
 				3CBCDBC122206BD100BF9C9D /* Assets.xcassets */,
 				3CBCDBC322206BD100BF9C9D /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 				3CB85B2422246038003D1B7A /* SwiftyJSON.swift in Sources */,
 				3CBCDBBD22206BCC00BF9C9D /* CharactersViewController.swift in Sources */,
 				3CBCDBBB22206BCC00BF9C9D /* AppDelegate.swift in Sources */,
+				3C6E470E222702F200A90D91 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
