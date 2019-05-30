@@ -66,6 +66,18 @@ class CharactersViewController: UITableViewController {
         cell.detailTextLabel?.text = character["species"]
         return cell
     }
+ 
+    @IBAction func onTappedDoneButton(_ sender: UIBarButtonItem) {
+        exit(0)
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let dvc = segue.destination as! DetailsViewController
+        let index = tableView.indexPathForSelectedRow?.row
+        dvc.character = characters[index!]
+    }
+    
+    @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
+    }
 }
 
